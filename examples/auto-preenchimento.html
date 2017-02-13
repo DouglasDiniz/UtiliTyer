@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+		<title>Bootstrap Template - Modais com auto-preenchimento</title>
+    
+		<link href="../resources/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<link href="../css/style.css" rel="stylesheet">
+		
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		
+		<!-- Modal de edição - Inicio -->		
+		<div class="modal fade utiliTyer-form" id="modal_editar" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form action="Editar" method="post">
+					
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title text-center">Editar Informações</h4>
+						</div>
+						
+						<div class="modal-body">
+							<input type='number' class="hidden" name='id' readonly required>
+							
+							<div class="form-group">
+								<label>Nome:</label>
+								<input type="text" class="form-control" name="nome" required>
+							</div>
+							
+							<div class="row">
+								<div class="col-xs-12 col-sm-4">
+									<div class="form-group">
+										<label>Nascimento:</label>
+										<input type="date" class="form-control" name="nascimento">
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4">
+									<div class="form-group">
+										<label>Cor:</label>
+										<input type="color" class="form-control" name="cor">
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4">
+									<div class="form-group">
+										<label>Cargo:</label>
+										<select name="cargo" class="form-control">										  
+										  <option value="Acionista">Acionista</option>
+										  <option value="Cozinheiro(a)">Cozinheiro(a)</option>
+										  <option value="Gerente">Gerente</option>
+										  <option value="Motorista">Motorista</option>										  
+										</select>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-xs-12 col-sm-4">
+									<div class="form-group">
+										<label>Sexo:</label><br>
+										<input type="radio" name="sexo" value="Masculino"> Masculino<br>
+										<input type="radio" name="sexo" value="Feminino"> Feminino<br>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-8">
+									<div class="form-group">
+										<label>Esportes preferidos:</label><br>
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<input type="checkbox" name="esportes-0" value="Ciclismo"> Ciclismo<br>
+												<input type="checkbox" name="esportes-1" value="Caminhada"> Caminhada
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input type="checkbox" name="esportes-2" value="Natacao"> Natação<br>
+												<input type="checkbox" name="esportes-3" value="Futebol"> Futebol
+											</div>
+										</div>										
+									</div>
+								</div>								
+							</div>
+							
+							<div class="form-group">
+								<label>Descrição:</label>
+								<textarea class="form-control" rows="2" name="descricao"></textarea>
+							</div>
+
+							<div class="form-group">
+								<label>Novas informações:</label>
+								<textarea class="utiliTyer-off form-control" rows="2" name="atualizacoes"></textarea>
+							</div>								
+						</div>
+						
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">
+									<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+								</div>
+																
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+									<button type="submit" class="btn btn-success">Editar</button>
+								</div>
+							</div>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>		
+		<!-- Modal de edição - Fim -->
+		
+		<div class="container">
+			<br>
+			<br>
+			
+			<div class="table-responsive">				
+				<table class="table">
+				
+					<tr>
+						<th class="text-center">Nome</th>
+						<th class="text-center">Sexo</th>
+						<th class="text-center">Nascimento</th>
+						<th class="text-center">Cor preferida</th>
+						<th class="text-center">Esportes Preferidos</th>
+						<th class="text-center">Cargo</th>
+						<th class="text-center">Descrição</th>
+						<th class="text-center">Opções</th>
+					</tr>
+									
+					<tr class="text-center">                                       
+						<td>Maria</td>
+						<td>Feminino</td>
+						<td>01/06/1990</td>
+						<td>
+							<div class="mostra-cor" style="background-color:#FF0000"></div>
+						</td>
+						<td>
+							Ciclismo<br>
+							Caminhada<br>
+						</td>					
+						<td>Gerente</td>
+						<td>Responsável por gerenciar a equipe de vendedores.</td>
+						
+						<td>
+							<a href="" data-toggle="modal" data-target="#modal_editar" data-id="1" data-nome="Maria" data-sexo="Feminino" data-nascimento="1995-06-01" data-cor="#FF0000" data-esportes-0="Ciclismo" data-esportes-1="Caminhada" data-cargo="Gerente" data-descricao="Responsável por gerenciar a equipe de vendedores." data-atualizacoes="Essa frase não irá aparecer no modal graças à classe utiliTyer-off!">
+								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							</a>
+							
+							&nbsp;
+							
+							<a href="">
+								<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
+							</a>
+							
+							&nbsp;
+							
+							<a href="">
+								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							</a>
+						</td>
+					</tr>
+					<tr class="text-center">                                       
+						<td>João</td>
+						<td>Masculino</td>
+						<td>25/09/1987</td>
+						<td>
+							<div class="mostra-cor" style="background-color:#0000FF"></div>
+						</td>
+						<td>
+							Futebol
+						</td>					
+						<td>Motorista</td>
+						<td>Responsável por levar os funcionários até suas residências.</td>
+						
+						<td>
+							<a href="" data-toggle="modal" data-target="#modal_editar" data-id="2" data-nome="João" data-sexo="Masculino" data-nascimento="1987-09-25" data-cor="#0000FF" data-esportes-3="Futebol" data-cargo="Motorista" data-descricao="Responsável por levar os funcionários até suas residências." data-atualizacoes="Essa frase não irá aparecer no modal graças à classe utiliTyer-off!">
+								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							</a>
+							
+							&nbsp;
+							
+							<a href="">
+								<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
+							</a>
+							
+							&nbsp;
+							
+							<a href="">
+								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	
+		<script src="../resources/jquery-3.1.1-dist/jquery-3.1.1.min.js"></script>
+		<script src="../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		
+		<script src="../js/utiliTyer.js"></script>
+	</body>
+</html>
